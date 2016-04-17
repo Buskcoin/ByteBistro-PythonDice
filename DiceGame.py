@@ -2,15 +2,18 @@ import random
 
 dice = {}
 
+#initializes and resets the dice values
 def init():
   global dice
   dice = {"WIN" : [7, 11], "LOSE" : 0}
 
+#creates and combines two random values from 1 - 6
 def roll():
     dice1 = random.randint(1,6)
     dice2 = random.randint(1,6)
     return dice1+dice2
 
+#rolls the dice and returns true if the game continues, false if the game is won or lost
 def play():
     test = roll()
     str = "You rolled "
@@ -31,6 +34,7 @@ def play():
         showInformation(str +". Try again")
         return "Roll Again"
 
+#Starts the game. This is the main function used to play the game.
 def gameStart():
    go = True
    init()
