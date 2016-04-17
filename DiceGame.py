@@ -1,5 +1,4 @@
 import random
-
 #holds the dice informaion
 dice = {}
 canvas = makeEmptyPicture(250,150)
@@ -8,6 +7,8 @@ canvas = makeEmptyPicture(250,150)
 def init():
   global dice
   dice = {"WIN" : [7, 11], "LOSE" : 0}
+  addRectFilled(canvas, 0,0, getWidth(canvas), getHeight(canvas), white)
+  repaint(canvas)
   show(canvas)
 
 #creates and combines two random values from 1 - 6
@@ -15,7 +16,7 @@ def roll():
     dice1 = random.randint(1,6)
     showDie(dice1, 0)
     dice2 = random.randint(1,6)
-    showDie(dice2, 100)
+    showDie(dice2, 120)
     return dice1+dice2
     
     
@@ -56,10 +57,15 @@ def gameStart():
    while go:
        go = play()
        if go == False:
+         global canvas                  
+         myFont = makeStyle(sansSerif, bold, 25)
+         addTextWithStyle(canvas, 50,50,"GAME OVER", myFont, orange)
+         repaint(canvas)
          answer = requestString("Play again?")
          if answer == "yes" or answer == "Yes":
            go = True
            init()
          else:
            print("FIN")
+           
          
