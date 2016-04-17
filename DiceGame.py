@@ -13,7 +13,7 @@ def roll():
     dice2 = random.randint(1,6)
     return dice1+dice2
 
-#rolls the dice and returns true if the game continues, false if the game is won or lost
+#rolls the dice and returns true if the game congametinues, false if the game is won or lost
 def play():
     test = roll()
     str = "You rolled "
@@ -25,10 +25,10 @@ def play():
         print("setting Dice")
         dice["LOSE"] = dice["WIN"]
         dice["WIN"] = [test]
-        showInformation(str +". You must not get 7 or 11")
+        showWarning(str +". You must not get 7 or 11")
         return True
     elif test in dice["LOSE"]:
-        showInformation(str +". You Lose")
+        showError(str +". You Lose")
         return False
     else:
         showInformation(str +". Try again")
