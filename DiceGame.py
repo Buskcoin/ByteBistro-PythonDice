@@ -28,7 +28,7 @@ def showDie(i,  pos):
   copyInto(makePicture(file), canvas, 1+pos,1)
   repaint(canvas)
 
-#rolls the dice and returns true if the game congametinues, false if the game is won or lost
+#rolls the dice and returns true if the game continues, false if the game is won or lost
 def play():
     test = roll()
     str = "You rolled "
